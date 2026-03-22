@@ -1,0 +1,20 @@
+const chatBox = document.getElementById("chatBox");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+sendBtn.addEventListener("click", async () => {
+  const message = userInput.value;
+  chatBox.innerHTML += `<p><b>Du:</b> ${message}</p>`;
+
+  // Hugging Face kostenlose KI
+  const response = await fetch('https://api-inference.huggingface.co/models/gpt2', {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer hf_DEIN_HUGGINGFACE_KEY' },
+    body: JSON.stringify({ inputs: message })
+  });
+
+  const data = await response.json();
+  const reply = data[0].generated_text || "Keine Antwort";
+  chatBox.innerHTML += `<p><b>Aypex:</b> ${reply}</p>`;
+  userInput.value = "";
+});

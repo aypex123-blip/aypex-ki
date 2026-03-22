@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Aypex KI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Aypex KI</h1>
+  <textarea id="userInput" placeholder="Schreib hier..."></textarea>
+  <button id="sendBtn">Senden</button>
+  <div id="chatBox"></div>
+  <script src="script.js"></script>
+</body>
+</html>
